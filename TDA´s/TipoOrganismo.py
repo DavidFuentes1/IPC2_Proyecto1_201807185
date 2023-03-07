@@ -5,18 +5,26 @@ class TipoOrganismo:
         self.Nombre = Nombre
 
 
-    def getCodigo(self)    :
-        return self.Codigo
-    
-    def getNombre(self):
-        return self.Nombre
-    
-    def setCodigo(self, x):
-        self.Codigo = x
+class Nodo:
+    def __init__(self, codigo, nombre):
+        self.Next = None
+        self.Tipo = TipoOrganismo(codigo, nombre)
 
-    def setNombre(self, y):
-        self.Nombre = y
-    
-                
-
+    def  getNext (self):
+            return self.Next
         
+
+    def  assNext (self, Nodo):
+        self.Next = Nodo          
+
+    def getTipo (self):
+        return self.Tipo
+    
+    def getNombreOrga(self):
+         return self.Tipo.Nombre
+
+    def getCodOrg (self):
+         return self.Tipo.Codigo
+
+    def ImprimirTipo(self):
+         return 'Codigo del Organismo es', str(self.Tipo.Codigo),'Nombre del organismo es:', str(self.Tipo.Nombre)   
