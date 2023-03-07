@@ -14,7 +14,7 @@ class Nodo:
             return self.Next
         
 
-    def  assNext (self, Nodo):
+    def  setNext (self, Nodo):
         self.Next = Nodo          
 
     def getTipo (self):
@@ -27,4 +27,6 @@ class Nodo:
          return self.Tipo.Codigo
 
     def ImprimirTipo(self):
-         return 'Codigo del Organismo es', str(self.Tipo.Codigo),'Nombre del organismo es:', str(self.Tipo.Nombre)   
+         return 'Codigo del Organismo es: '+ str(self.Tipo.Codigo)+ ' Nombre del organismo es: '+ str(self.Tipo.Nombre)   
+    
+

@@ -1,6 +1,6 @@
 from xml.dom import minidom
 import xml.etree.ElementTree as ET
-
+from TDAs.ListaOrganismos import ListaOrganismo
 
 
 xmlMuestra = ET.Element('datosMarte')
@@ -39,3 +39,6 @@ for y in listMu:
                 print('Celda Viva en:', filaO.firstChild.data, columnaO.firstChild.data, 'Codigo Organismo:', codeOrg.firstChild.data)
     print()
 
+y = ListaOrganismo()
+y.InsertarLista('012', 'lista1')
+print(y.Imprimir())
