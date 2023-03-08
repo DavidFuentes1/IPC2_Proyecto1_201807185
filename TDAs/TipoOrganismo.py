@@ -1,8 +1,29 @@
+from Organismo import*
+
 class TipoOrganismo:
 
-    def __init__(self, Codigo, Nombre):
+    
+    def __init__ (self):
+        self.Cabeza = None
+        self.Cola = None
+        self.Size = 0    
+
+    def setUp(self, Codigo, Nombre):
         self.Codigo = Codigo
         self.Nombre = Nombre
+
+
+    def InsertarCelda(self, fila, columna, codigo):
+         aux1 = Node(fila, columna, codigo)
+         if self.Codigo == codigo:
+              if self.Cabeza == None:
+                   self.Cabeza = aux1
+                   self.Cola = aux1
+                   self.Size += 1
+              else:
+                   self.Cola.setNext(aux1)
+                   self.Cola = aux1       
+                   self.Size += 1
 
 
 class Nodo:
@@ -30,3 +51,6 @@ class Nodo:
          return 'Codigo del Organismo es: '+ str(self.Tipo.Codigo)+ ' Nombre del organismo es: '+ str(self.Tipo.Nombre)   
     
 
+j = TipoOrganismo()
+j.setUp('166', 'hola')
+j.InsertarCelda('14','15','166')

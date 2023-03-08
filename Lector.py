@@ -7,6 +7,10 @@ xmlMuestra = ET.Element('datosMarte')
 #print('INGRESE LA RUTA ABSOLUTA DEL DOCUMENTO A INSEPECCIONAR')
 #ruta = input()
 arch = minidom.parse('IPC2_Proyecto1_201807185\EntradaEjemplo.xml')
+
+# lista de listas
+listaTipo = ListaOrganismo()
+
 listaOrg = arch.getElementsByTagName('listaOrganismos')
 print('Lista de organismos')
 for Org in listaOrg:
@@ -14,7 +18,9 @@ for Org in listaOrg:
     for x in lorganismo:
         code = x.getElementsByTagName('codigo')[0]
         name = x.getElementsByTagName('nombre')[0]
-        print('Codigo de la Muestra',code.firstChild.data,'Nombre de la muestra:', name.firstChild.data)
+        listaTipo.InsertarLista(code.firstChild.data, name.firstChild.data)
+        #print('Codigo de la Muestra',code.firstChild.data,'Nombre de la muestra:', name.firstChild.data)
+print(listaTipo.Imprimir())
 
 # Lista de Muestras
 listMu = arch.getElementsByTagName('listadoMuestras')
@@ -36,9 +42,15 @@ for y in listMu:
                 filaO = j.getElementsByTagName('fila')[0]
                 columnaO = j.getElementsByTagName('columna')[0]
                 codeOrg = j.getElementsByTagName('codigoOrganismo')[0]
+                buscadorLista = listaTipo.Cabeza
+                while buscadorLista != None:
+                    if buscadorLista.getCodOrg() == codeOrg.firstChild.data:
+                        buscadorLista.InsertarCelda(filaO.firstChild.data, columnaO.firstChild.data, codeOrg.firstChild.data)
+                        break
+                    buscadorLista = buscadorLista.Next
+
                 print('Celda Viva en:', filaO.firstChild.data, columnaO.firstChild.data, 'Codigo Organismo:', codeOrg.firstChild.data)
     print()
 
-y = ListaOrganismo()
-y.InsertarLista('012', 'lista1')
-print(y.Imprimir())
+
+

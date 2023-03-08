@@ -1,6 +1,6 @@
 from .TipoOrganismo import*
 
-class ListaOrganismo:
+class ListaOrganismo():
 
     def __init__(self):
         self.Cabeza = None
@@ -30,4 +30,8 @@ class ListaOrganismo:
         return text    
 
 
-        
+y = ListaOrganismo()
+y.InsertarLista('hola','juan')
+
+y.InsertarCelda('12', '23', 'hola')
+print(str(y.Imprimir()))       
